@@ -32,6 +32,18 @@
                     controllerAs: 'vm'
                 }
 
+            },
+
+            { 
+                name: 'app.tareaTres',
+                options: {
+                    title: 'Tarea Tres',
+                    url: '/tareaTres',
+                    templateUrl: 'app/js/controllers/tareaTres/tareaTres.html',
+                    controller: 'tareaTresController',
+                    controllerAs: 'vm'
+                }
+
             }
 
     

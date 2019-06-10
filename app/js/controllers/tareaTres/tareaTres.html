@@ -1,0 +1,91 @@
+<div>
+
+    <div class="container">
+
+        <div id="ng-init" ng-init="myVar = 8">
+
+            <h3><code>ng-init</code></h3>
+            <div ng-repeat="innerList in vm.list" ng-init="outerIndex = $index">
+                <div ng-repeat="value in innerList" ng-init="innerIndex = $index">
+                    <span class="example-init">list[ {{outerIndex}} ][ {{innerIndex}} ]= {{value}}</span>
+                </div>
+            </div>
+            {{myVar}}
+        </div>
+
+    </div>
+</br></br>
+<div id="ng-repeat-ng-class">
+    <h3>><code>ng-repeat</code> && <code>ng-class</code></h3>
+    <table class="table table-condensed table-responsive">
+
+        <thead>
+            <tr>
+                <th scope="col" ng-repeat="header in vm.fruitHeaders">{{header}}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr ng-repeat= "fruit in vm.fruits"
+                ng-class="fruit.selected ? 'green' : fruit.color"
+                ng-click="fruit.selected = !fruit.selected"
+                ng.dbclick="vm.selecDeselectAll()"
+                ng-class-odd="'italic'"
+                ng-class-odd="'bold'">
+
+                <td>$index: {{$index}}</td>
+                <td>$first: {{$first}}</td>
+                <td>$middle: {{$middle}}</td>
+                <td>$last: {{$last}}</td>
+                <td>$even: {{$even}}</td>
+                <td>$odd: {{$odd}}</td>
+                <td>{{$fruit.name}}</td>
+
+            </tr>
+                
+        </tbody>
+
+    </table>
+</div>
+
+</br></br>
+
+<div id="ng-include-ng-switch">
+    <h3><code>ng-include</code> && <code>ng-switch</code></h3>
+    <select ng-model="vm.template" ng-options= "t.name for t in vm.templates">
+        <option value="">none</option>
+    </select>
+    URL of the template: <code>{{vm.template.url}}</code>
+    <hr>
+    <div class="slide-animate-container">
+        <div class="slide-animate" ng-include="vm.template.url">
+
+        </div>
+    </div>
+</div>
+</br>
+
+<div class = "slide-animate-container" ng-switch on = "vm.template.name">
+    <div class="slide-animate" ng-switch-when = "template1.html">
+        You have chosen the template 1
+    </div>
+    <div class = "slide-animate" ng-switch-when = "template2.html">
+        You have chosen the template 2
+    </div>
+    <div class = "slide-animate" ng-switch-when>
+            Default option
+    </div>
+
+
+</div>
+</br></br>
+
+<div id="ng-if-ng-show-ng-hide">
+    <h3>><code>ng-if</code> && <code>ng-show</code> && <code>ng-hide</code></h3>
+    <button ng-click = "vm.ifShowHide = !vm.ifShowHide" class="btn btn-primary">Click me! </button>
+    <div ng-if="vm.ifShowHide"><h2>Content inside ng-if</h2></div>
+    <div ng-show="vm.evaluateIfShowHide()"><h2>Content inside ng-show</h2></div>
+    <div ng-hide="vm.ifShowHide"><h2>Content inside ng-hide</h2></div>
+
+</div>
+</div>
